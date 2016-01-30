@@ -28,8 +28,8 @@
   <!-- Sidebar Menu -->
   <ul class="sidebar-menu">
     <li class="header">HEADER</li>
-    {{ ui_menu.item('First link', 'usb', {'route' : 'home'}, true) }}
-    {{ ui_menu.item('Hostel', 'bed', {'route' : 'home'}) }}
+    {{ ui_menu.item('First link', 'usb', {'route' : 'home'}, {}, true) }}
+    {{ ui_menu.item('Hostel', 'bed', {'route' : 'home'}, {'text': 42, 'color': 'blue'}) }}
     {{ ui_menu.multi('Multi', 'bar-chart', [
             {'route': 'home', 'text': 'First'},
             {'route': 'home', 'text': 'Second'},

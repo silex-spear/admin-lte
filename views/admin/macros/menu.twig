@@ -14,12 +14,19 @@
 
 {% endmacro %}
 
-{% macro item(name, icon, link, active = false) %}
+{% macro item(name, icon, link, badge = {}, active = false) %}
     {% import _self as macro %}
 
     <li {%  if active == true %}class="active"{% endif %}>
         {{ macro._generateLink(link) }}
             <i class="fa fa-{{ icon }}"></i> <span>{{ name }}</span>
+            {% if badge is not empty and badge.text is defined%}
+                {% set color = '' %}
+                {% if badge.color is defined %}
+                    {% set color = badge.color %}
+                {% endif %}
+                <small class="label pull-right bg-{{ color }}">{{ badge.text }}</small>
+            {% endif %}
         </a>
     </li>
 
