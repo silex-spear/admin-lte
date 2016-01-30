@@ -1,0 +1,3 @@
+dumper:
+    directories:
+        vendor/almasaeed2010/adminlte/dist/img: img

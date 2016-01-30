@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% filter striptags %}{% block title %}{% endblock %}{% endfilter %}</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  {% stylesheets
+  	'../assets/compiled/bootstrap.css'
+  	'../assets/compiled/admin.css'
+  	'../assets/compiled/admin_theme.css'
+  	'../assets/compiled/main.css'
+  	'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'
+   %}
+       <link href="/{{ asset_url }}" type="text/css" rel="stylesheet" />
+   {% endstylesheets %}
+
+   {% block specificStylesheets %}{% endblock specificStylesheets %}
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue sidebar-mini skin-green">
+
+    {% block content %}{% endblock %}
+
+    {% javascripts
+        'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'
+        '../vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+        '../vendor/almasaeed2010/adminlte/dist/js/app.min.js'
+        '../assets/js/main.js'
+    %}
+    <script type="text/javascript" src="/{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% block specificsJavascripts %}{% endblock specificsJavascripts %}
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. Slimscroll is required when using the
+     fixed layout. -->
+</body>
+</html>
