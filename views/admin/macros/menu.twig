@@ -1,51 +1,48 @@
 {% macro _generateLink(link) %}
-	{% set route = '#' %}
+    {% set route = '#' %}
 
-	{% set parameters = [] %}
+    {% set parameters = [] %}
     {% if link.parameters is defined %}
-		{% set parameters = link.parameters %}
-	{% endif %}
+        {% set parameters = link.parameters %}
+    {% endif %}
 
-	{% if link.route is defined %}
-		{% set route = path(link.route, parameters) %}
-	{% endif %}
+    {% if link.route is defined %}
+        {% set route = path(link.route, parameters) %}
+    {% endif %}
 
-	<a href="{{ route }}">
+    <a href="{{ route }}">
 
 {% endmacro %}
 
 {% macro item(name, icon, link, active = false) %}
     {% import _self as macro %}
 
-	<li {%  if active == true %}class="active"{% endif %}>
+    <li {%  if active == true %}class="active"{% endif %}>
         {{ macro._generateLink(link) }}
-			<i class="fa fa-{{ icon }}"></i> <span>{{ name }}</span>
-		</a>
-	</li>
+            <i class="fa fa-{{ icon }}"></i> <span>{{ name }}</span>
+        </a>
+    </li>
 
 {% endmacro %}
 
 {% macro multi(name, icon, links, active = false) %}
     {% import _self as macro %}
 
-	<li {%  if active == true %}class="active"{% endif %}>
+    <li {%  if active == true %}class="active"{% endif %}>
     <li class="treeview">
-		<a href="#">
-			<i class="fa fa-{{ icon }}"></i> <span>{{ name }}</span>
-			<i class="fa fa-angle-left pull-right"></i>
-		</a>
-      	<ul class="treeview-menu">
-      		{% for link in links %}
-    		<li>
-      		    {{ macro._generateLink(link) }}
-      		        {{ link.text }}
-  		        </a>
-			</li>
-			{% endfor %}
-      	</ul>
+        <a href="#">
+            <i class="fa fa-{{ icon }}"></i> <span>{{ name }}</span>
+            <i class="fa fa-angle-left pull-right"></i>
+        </a>
+          <ul class="treeview-menu">
+              {% for link in links %}
+            <li>
+                  {{ macro._generateLink(link) }}
+                      {{ link.text }}
+                  </a>
+            </li>
+            {% endfor %}
+          </ul>
     </li>
 
 {% endmacro %}
-
-
-

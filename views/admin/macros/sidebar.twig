@@ -1,38 +1,38 @@
 {% macro userPanel(name, info = {}) %}
 
 <div class="user-panel">
-	<div class="pull-left image">
-		{% set image = '/img/lib/user-undefined.png' %}
-    	{% if info.image is defined %}
-			{% set image = info.image %}
+    <div class="pull-left image">
+        {% set image = '/img/lib/user-undefined.png' %}
+        {% if info.image is defined %}
+            {% set image = info.image %}
         {% endif %}
-    	<img src="{{ image }}" class="img-circle" alt="User Image">
+        <img src="{{ image }}" class="img-circle" alt="User Image">
     </div>
 
     <div class="pull-left info">
-    	<p>{{ name }}</p>
+        <p>{{ name }}</p>
         {% if info.status is defined %}
         <a href="#">
-			{% set color = 'green' %}
-			{% if info.color is defined %}
-				{% set color = info.color %}
-			{% endif %}
+            {% set color = 'green' %}
+            {% if info.color is defined %}
+                {% set color = info.color %}
+            {% endif %}
 
-			{% set class = 'success' %}
-			{% if color == 'red' %}
-			    {% set class = 'danger' %}
-		    {% elseif color == 'orange' %}
-			    {% set class = 'warning' %}
-		    {% endif %}
+            {% set class = 'success' %}
+            {% if color == 'red' %}
+                {% set class = 'danger' %}
+            {% elseif color == 'orange' %}
+                {% set class = 'warning' %}
+            {% endif %}
 
-		    {% set icon = 'circle' %}
-		    {% if info.icon is defined %}
-		    	{% set icon = info.icon %}
-		    {% endif %}
+            {% set icon = 'circle' %}
+            {% if info.icon is defined %}
+                {% set icon = info.icon %}
+            {% endif %}
 
-			<i class="fa fa-{{ icon }} text-{{ class }}"></i> {{ info.status }}
-		</a>
-		{% endif %}
+            <i class="fa fa-{{ icon }} text-{{ class }}"></i> {{ info.status }}
+        </a>
+        {% endif %}
     </div>
 </div>
 
