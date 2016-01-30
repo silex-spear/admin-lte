@@ -1,0 +1,10 @@
+{
+    "name": "silex-spear/adminlte",
+    "type": "library",
+    "require" : {
+        "twbs/bootstrap" : "~3.3",
+        "oyejorge/less.php" : "~1.7",
+        "fortawesome/font-awesome": "~4.3",
+        "almasaeed2010/adminlte": "2.3.2"
+    }
+}
