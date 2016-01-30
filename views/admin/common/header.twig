@@ -11,7 +11,9 @@
 
         <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-            {{ ui_header.mails() }}
+            {% embed 'admin/embedded/header/mail.twig' with {'mails': mails} %}
+                {% block timing %}{% endblock %}
+            {% endembed %}
             {{ ui_header.tasks() }}
             {{ ui_header.notifications() }}
             {{ ui_header.account() }}

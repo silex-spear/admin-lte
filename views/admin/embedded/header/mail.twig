@@ -1,0 +1,44 @@
+<li class="dropdown messages-menu">
+
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-envelope-o"></i>
+        <span class="label label-success">{{ mails|length }}</span>
+    </a>
+
+    <ul class="dropdown-menu">
+    	{%  block header %}
+        <li class="header">
+            You have {{ mails|length }} messages
+        </li>
+        {% endblock %}
+        <li>
+            <ul class="menu">
+            	{% for mail in mails %}
+                <li>
+                    <a href="#">
+                        {% block avatar %}
+                        <div class="pull-left">
+                            <img src="{{ mail.avatar }}" class="img-circle" alt="User Image">
+                        </div>
+                        {% endblock %}
+                        <h4>
+                            {{ mail.author }}
+                            {% block timing %}
+                            <small><i class="fa fa-clock-o"></i> {{ mail.date }}</small>
+                            {% endblock %}
+                          </h4>
+                        <p>{{ mail.subject|slice(0, 40) }}{% if mail.subject|length > 40 %}...{% endif %}</p>
+                    </a>
+              </li>
+              {% endfor %}
+            </ul>
+        </li>
+        {% block footer %}
+        <li class="footer">
+            <a href="#">
+                See All Messages
+            </a>
+        </li>
+        {% endblock %}
+    </ul>
+</li>
