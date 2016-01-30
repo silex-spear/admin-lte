@@ -31,7 +31,10 @@ In your Application class :
 
 Edit one of your controller action : 
 ```php
-  return $this->twig->render('admin/home.twig');
+    return $this->twig->render('admin/home.twig', [
+        'shortTitle' => 'SSA',
+        'title' => 'Silex Spear Admin'
+    ]);
 ```
 
 8 - Refresh your browser and enjoy !
