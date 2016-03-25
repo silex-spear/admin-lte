@@ -7,13 +7,15 @@
 <!-- sidebar: style can be found in sidebar.less -->
 <section class="sidebar">
 
+  {% block user %}
   {{ ui_sidebar.userPanel('Nadine Sys', {
       'image': '/img/user4-128x128.jpg',
       'status': 'offline',
       'color': 'red'
     }) }}
+  {% endblock %}
 
-  <!-- search form (Optional) -->
+  {% block search %}
   <form action="#" method="get" class="sidebar-form">
     <div class="input-group">
       <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -23,11 +25,11 @@
           </span>
     </div>
   </form>
-  <!-- /.search form -->
+  {% endblock %}
 
-  <!-- Sidebar Menu -->
+  {% block menu %}
   <ul class="sidebar-menu">
-    <li class="header">HEADER</li>
+    <li class="header">{% block menuHeader %}{% endblock %}</li>
     {{ ui_menu.item('First link', 'usb', {'route' : 'home'}, {}, true) }}
     {{ ui_menu.item('Hostel', 'bed', {'route' : 'home'}, {'text': 42, 'color': 'blue'}) }}
     {{ ui_menu.multi('Multi', 'bar-chart', [
@@ -36,7 +38,7 @@
             {'route': 'home', 'text': 'Third'},
         ])  }}
   </ul>
-  <!-- /.sidebar-menu -->
+  {% endblock %}
 </section>
 <!-- /.sidebar -->
 </aside>

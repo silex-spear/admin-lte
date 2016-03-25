@@ -1,8 +1,15 @@
 {% extends 'admin/common/body.twig' %}
 
 {% block title %}{{ title }}{% endblock %}
+{% block skin %}skin-purple{% endblock %}
 
-{% block skin %}skin-red{% endblock %}
+{% block header %}
+    {% include 'header.twig' %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'sidebar.twig' %}
+{% endblock %}
 
 {% block body %}
 {% endblock %}

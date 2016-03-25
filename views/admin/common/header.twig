@@ -2,23 +2,27 @@
 
 <header class="main-header">
     <a href="index2.html" class="logo">
-        <span class="logo-mini">{{ shortTitle }}</span>
-          <span class="logo-lg">{{ title }}</span>
+        <span class="logo-mini">{% block shortTitle %}{{ shortTitle }}{% endblock %}</span>
+          <span class="logo-lg">{% block title %}{{ title }}{% endblock %}</span>
     </a>
 
     <nav class="navbar navbar-static-top" role="navigation">
         {{ ui_header.toggleMenu() }}
 
         <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-            {% embed 'admin/embedded/header/mail.twig' with {'mails': mails} %}
-                {% block timing %}{% endblock %}
-            {% endembed %}
-            {{ ui_header.tasks() }}
-            {{ ui_header.notifications() }}
-            {{ ui_header.account() }}
-            {{ ui_header.settings() }}
+            <ul class="nav navbar-nav">
+            	{% block custom %}
+            	{% if mails is defined %}
+                    {% embed 'admin/embedded/header/mail.twig' with {'mails': mails} %}
+                        {% block timing %}{% endblock %}
+                    {% endembed %}
+                {% endif %}
+                {{ ui_header.tasks() }}
+                {{ ui_header.notifications() }}
+                {{ ui_header.account() }}
+                {{ ui_header.settings() }}
+                {% endblock %}
             </ul>
-        </div>
-    </nav>
+		</div>
+	</nav>
 </header>
