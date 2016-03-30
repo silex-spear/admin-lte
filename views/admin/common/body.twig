@@ -11,14 +11,19 @@
         {% endblock %}
 
       <div class="content-wrapper">
-        <section class="content-header">
-          <h1>
-          {% block pageTitle %}{% endblock %}
-          </h1>
-          <ol class="breadcrumb">
-          {% block breadcrumb %}{% endblock %}
-          </ol>
-        </section>
+          {% if block('pageTitle') is not empty or block('breadcrumb') is not empty %}
+          <section class="content-header">
+              {% if block('pageTitle') is not empty %}
+                 <h1>{% block pageTitle %}{% endblock %}</h1>
+              {% endif %}
+
+              {% if block('breadcrumb') is not empty %}
+                <ol class="breadcrumb">
+                    {% block breadcrumb %}{% endblock %}
+                </ol>
+              {% endif %}
+          </section>
+          {% endif %}
 
         <section class="content">
         {% block body %}
