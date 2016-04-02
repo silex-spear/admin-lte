@@ -1,5 +1,5 @@
 {
-    "name": "niktux/adminlte",
+    "name": "silex-spear/adminlte",
     "type": "library",
     "require" : {
         "twbs/bootstrap" : "~3.3",
