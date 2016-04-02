@@ -1,33 +1,35 @@
 # adminlte
 
-1 - Create your project based on silex-spear/skeleton
+1 - Download composer
+
+2 - Create your project based on silex-spear/skeleton
 ```
 php composer.phar create-project silex-spear/skeleton myProject dev-master
 ```
 
-2 - Download composer
+3 - Move composer.phar to project dir
 
-3 - Add adminlte package
+4 - Add adminlte package
 ```
 composer require niktux/adminlte 0.0.2
 ```
 
-4 - Merge assetic conf : add ```vendor/niktux/adminlte/config/assetic.yml-dist.example``` content into ```config/assetic.yml-dist```
+5 - Merge assetic conf : add ```vendor/niktux/adminlte/config/assetic.yml-dist.example``` content into ```config/assetic.yml-dist```
 
-5 - Package application
+6 - Package application
 ```
 chmod u+x start
 start
 vendor/bin/lessc-adminlte
 ```
-6 - Activate AdminLTE extension
+7 - Activate AdminLTE extension
 
 In your Application class :
 ```php
   $this->register(new \Spear\AdminLTE\Provider());
 ```
 
-7 - Use it
+8 - Use it
 
 Edit one of your controller action : 
 ```php
@@ -37,4 +39,4 @@ Edit one of your controller action :
     ]);
 ```
 
-8 - Refresh your browser and enjoy !
+9 - Refresh your browser and enjoy !
