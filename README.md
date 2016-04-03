@@ -19,7 +19,7 @@ composer require niktux/adminlte 0.0.2
 6 - Package application
 ```
 chmod u+x start
-start
+./start
 vendor/bin/lessc-adminlte
 ```
 7 - Activate AdminLTE extension
