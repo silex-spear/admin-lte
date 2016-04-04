@@ -18,7 +18,6 @@ composer require niktux/adminlte 0.0.2
 
 6 - Package application
 ```
-chmod u+x start
 ./start
 vendor/bin/lessc-adminlte
 ```
