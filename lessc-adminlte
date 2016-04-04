@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "Admin LTE ..."
 vendor/bin/lessc vendor/almasaeed2010/adminlte/build/less/AdminLTE.less assets/compiled/admin.css
