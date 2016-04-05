@@ -35,15 +35,14 @@
 {% macro multi(name, icon, links, active = false) %}
     {% import _self as macro %}
 
-    <li {%  if active == true %}class="active"{% endif %}>
-    <li class="treeview">
+    <li class="treeview{% if active == true %} active{% endif %}">
         <a href="#">
             <i class="fa fa-{{ icon }}"></i> <span>{{ name }}</span>
             <i class="fa fa-angle-left pull-right"></i>
         </a>
           <ul class="treeview-menu">
-              {% for link in links %}
-            <li>
+            {% for link in links %}
+            <li{% if link.active is defined and link.active == true %} class="active"{% endif %}>
                   {{ macro._generateLink(link) }}
                       {{ link.text }}
                   </a>
