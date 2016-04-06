@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo "Bootstrap  ..."
+vendor/bin/lessc vendor/twbs/bootstrap/less/bootstrap.less assets/compiled/bootstrap.css
+
 echo "Admin LTE ..."
 vendor/bin/lessc vendor/almasaeed2010/adminlte/build/less/AdminLTE.less assets/compiled/admin.css
 vendor/bin/lessc vendor/almasaeed2010/adminlte/build/less/skins/_all-skins.less assets/compiled/admin_theme.css
